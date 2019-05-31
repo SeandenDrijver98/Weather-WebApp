@@ -4,18 +4,37 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebApp.Models;
 
 namespace WebApp
 {
-    public partial class _Default : Page
+    public partial class Login : System.Web.UI.Page
     {
-
-        protected void btnSearch_Click(object sender, EventArgs e)
+        protected void btnLogin_Click(object sender, EventArgs e)
         {
-            String searchCity = ddCities.SelectedItem.Value;
-            sqlLite.SelectCommand = "SELECT * FROM [forecast] WHERE [city] IS @searchCity"; //AND [date] IS @searchDate";
+            User login = new User
+            {
+                email = loginEmail.Text,
+                password = loginPassword.Text
+            };
 
-            sqlLite.Select(DataSourceSelectArguments.Empty);
+            if (DataAccess.UserExists(login))
+            {
+                System.Diagnostics.Debug.WriteLine("true");
+                Response.Redirect("~/Weather");
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("false");
+                Page.ClientScript.RegisterStartupScript(Page.GetType(), "MessageBox", "<script language='javascript'>alert('Invalid Credentials');</script>");
+                
+            }
+
+
+
         }
+
+        // String email = Request.Form[]
+
     }
 }
