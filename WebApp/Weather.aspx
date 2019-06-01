@@ -38,6 +38,16 @@
                     <SortedAscendingHeaderStyle BackColor="#808080" />
                     <SortedDescendingCellStyle BackColor="#CAC9C9" />
                     <SortedDescendingHeaderStyle BackColor="#383838" />
+                    <Columns>
+                         <asp:BoundField DataField="date" HeaderText="Date"/>
+                         <asp:BoundField DataField="condition" HeaderText="Condition"/>
+                         <asp:BoundField DataField="min_temp" HeaderText="Min Temp"/>
+                         <asp:BoundField DataField="max_temp" HeaderText="Max Temp"/>
+                         <asp:BoundField DataField="precipitation" HeaderText="Precipitation"/>
+                         <asp:BoundField DataField="windspeed" HeaderText="Windspeed" />
+                         <asp:BoundField DataField="humidity" HeaderText="Humidity"/>
+                         
+                    </Columns>
                 </asp:GridView>
             </p>
         </div>

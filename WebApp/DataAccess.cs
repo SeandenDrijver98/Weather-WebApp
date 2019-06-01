@@ -11,6 +11,7 @@ namespace WebApp
 {
     public class DataAccess
     {
+        //Login a user
         public static Boolean UserExists(User login)
         {
             Boolean exists = false;
@@ -18,7 +19,6 @@ namespace WebApp
             using (IDbConnection con = new SQLiteConnection(getConnectionString()))
             {
             var users= con.Query<User>("SELECT * FROM user WHERE email IS @email AND password IS @password", login);
-                System.Diagnostics.Debug.WriteLine("query: " + users.ToList<User>().Count());
                 if (users.Count() != 0)
                 {
                     exists = true;
@@ -26,16 +26,28 @@ namespace WebApp
             }
             return exists;
         }
-
-        public static List<Forecast> getForecasts(String City)
+        //Create a new user
+        public static void createUser(User newUser)
         {
             using (IDbConnection con = new SQLiteConnection(getConnectionString()))
             {
-                var forecasts = con.Query<Forecast>("SELECT * FROM Forecast");
+                con.Execute("INSERT INTO User (email, password, permissions) Values (@email, @password, @permissions)", newUser);
+            }
+        }
+        //Fetch forecast for selected city
+        public static List<Forecast> getForecasts(String searchCity)
+        {
+            Forecast searchParams = new Forecast { city = searchCity };
+
+            using (IDbConnection con = new SQLiteConnection(getConnectionString()))
+            {
+                var forecasts = con.Query<Forecast>("SELECT * FROM Forecast WHERE city IS @city", searchParams);
+                System.Diagnostics.Debug.WriteLine("query: " + forecasts.ToList<Forecast>().Count());
                 return forecasts.ToList<Forecast>();
             }
 
         }
+        //Store the connection string
       public static String getConnectionString()
         {
             var path = " Data Source = " + System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, @"bin\App_Data\WeatherWatcherDb.db");
