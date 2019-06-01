@@ -13,6 +13,7 @@
             <p>
                 City:
                 <asp:DropDownList ID="ddCities" runat="server">
+                    <asp:ListItem>Find a City</asp:ListItem>
                     <asp:ListItem>Cape Town</asp:ListItem>
                     <asp:ListItem>Pretoria</asp:ListItem>
                     <asp:ListItem>Johannesburg</asp:ListItem>
@@ -27,6 +28,9 @@
         </div>
         <div>
             <h2>Forecasts:</h2>
+            <h3>
+                <asp:Label ID="cityName" runat="server" Text="Cape Town"></asp:Label>
+            </h3>
             <p>
                 <asp:GridView ID="weatherData" runat="server" Width="1227px" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" ForeColor="Black">
                     <FooterStyle BackColor="#CCCCCC" />

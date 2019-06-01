@@ -13,12 +13,13 @@ namespace WebApp
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             String city = ddCities.SelectedItem.Value;
-            weatherData.DataSource = DataAccess.getForecasts(city);
+            Response.Redirect("~/Weather?city=" + city);
         }
         //Cape towns results loaded by default
         protected void Page_Load(object sender, EventArgs e)
         {
-            String city = ddCities.SelectedItem.Value;
+            String city = Request.QueryString["city"];
+            cityName.Text = city;
             weatherData.DataSource = DataAccess.getForecasts(city);
             weatherData.DataBind();
             

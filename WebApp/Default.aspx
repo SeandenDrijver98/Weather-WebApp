@@ -65,6 +65,16 @@
           <asp:ListItem Value="Admin">Forecaster</asp:ListItem>
       </asp:DropDownList>
                </div>
+         <div class="form-group">
+          <label for="ddFavCity">User Type </label>&nbsp;<br/>
+            <asp:DropDownList ID="ddFavCity" runat="server">
+          <asp:ListItem>Cape Town</asp:ListItem>
+          <asp:ListItem>Johannesburg</asp:ListItem>
+          <asp:ListItem>Pretoria</asp:ListItem>
+          <asp:ListItem>Durban</asp:ListItem>
+          <asp:ListItem>Port Elizabeth</asp:ListItem>
+      </asp:DropDownList>
+               </div>
      
       <asp:Button ID="btnSignUp" runat="server" Text="Sign Up" OnClick="btnSignUp_Click" />
  

@@ -21,7 +21,10 @@ namespace WebApp
             //Check if the account exists
             if (DataAccess.UserExists(login))
             {
-                Response.Redirect("~/Weather");
+                
+                string city = DataAccess.getFavouriteCity(login);
+                Session["city"] = city;
+                Response.Redirect("~/Weather?city="+city);
             }
             //Notify the user if incorrect
             else
@@ -37,7 +40,8 @@ namespace WebApp
             {
                 email = signUpEmail.Text,
                 password = signUpPassword.Text,
-                permissions = ddPermissions.SelectedItem.Value
+                permissions = ddPermissions.SelectedItem.Value,
+                favourite_city = ddFavCity.SelectedItem.Value
             };
             //Create the user
             DataAccess.createUser(signup);

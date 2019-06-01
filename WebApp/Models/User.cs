@@ -10,5 +10,6 @@ namespace WebApp.Models
         public String email { get; set; }
         public String password { get; set; }
         public String permissions { get; set; }
+        public String favourite_city { get; set; }
     }
 }

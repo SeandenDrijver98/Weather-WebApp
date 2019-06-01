@@ -26,12 +26,29 @@ namespace WebApp
             }
             return exists;
         }
+
+        //Get users favourite city
+        public static String getFavouriteCity(User login)
+        {
+            using (IDbConnection con = new SQLiteConnection(getConnectionString()))
+            {
+                var favCity = con.Query<User>("SELECT * FROM user WHERE email IS @email AND password IS @password", login);
+                if (favCity == null)
+                {
+                    return "Cape Town";
+                }
+                System.Diagnostics.Debug.WriteLine(favCity.ToList()[0]);
+                return favCity.ToList().ElementAt(0).favourite_city;
+            }
+          
+        }
+
         //Create a new user
         public static void createUser(User newUser)
         {
             using (IDbConnection con = new SQLiteConnection(getConnectionString()))
             {
-                con.Execute("INSERT INTO User (email, password, permissions) Values (@email, @password, @permissions)", newUser);
+                con.Execute("INSERT INTO User (email, password, permissions, favourite_city) Values (@email, @password, @permissions, @favCity)", newUser);
             }
         }
         //Fetch forecast for selected city
