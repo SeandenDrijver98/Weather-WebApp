@@ -50,7 +50,7 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Sign Out</a></li>
+                        <li><a runat="server" class="rightLink" href="~/">Sign Out</a></li>
                     </ul>
                 </div>
             </div>

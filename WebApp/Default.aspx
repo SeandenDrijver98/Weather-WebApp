@@ -24,14 +24,16 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Sign In</a></li>
+                        <li class ="rightLink"><a runat="server" href="~/">Sign In</a></li>
                     </ul>
                 </div>
             </div>
         </div>
+    <div class="jumbotron">
         <h1>Welcome to Weather Watcher on the Web</h1>
-    <form id="default" runat="server">
-         <div>
+        </div>
+    <form id="defaultForm" runat="server">
+         <div class="form">
         <h2>Login</h2>
   <div class="form-group">
     <label for="loginEmail">Email address </label>&nbsp;
@@ -40,12 +42,12 @@
   <div class="form-group">
     <label for="loginPassword">Password&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>&nbsp;
       <asp:TextBox ID="loginPassword" runat="server" TextMode="Password"></asp:TextBox>
-      <br />
-      <br />
+      </div>
       <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Login" />
-  </div>
+  
 </div>
-<div id ="SignUp">
+     
+<div class="form">
         <h2>Sign Up</h2>
   <div class="form-group">
     <label for="signUpEmail">Email address </label>&nbsp;
@@ -57,20 +59,19 @@
        </div>
            
            <div class="form-group">
-          <label for="ddPermissions">User Type </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;<asp:DropDownList ID="ddPermissions" runat="server">
+          <label for="ddPermissions">User Type </label>&nbsp;<br/>
+            <asp:DropDownList ID="ddPermissions" runat="server">
           <asp:ListItem>General User</asp:ListItem>
           <asp:ListItem Value="Admin">Forecaster</asp:ListItem>
       </asp:DropDownList>
                </div>
      
       <asp:Button ID="btnSignUp" runat="server" Text="Sign Up" OnClick="btnSignUp_Click" />
-      <br />
-      <br />
-
  
     </div>
     </form>
 
+
 </body>
+
 </html>

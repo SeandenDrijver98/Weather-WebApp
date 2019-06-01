@@ -2,6 +2,7 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color:lightskyblue
 }
 
 /* Wrapping element */
@@ -21,8 +22,25 @@ textarea {
 .searchFilters{
     display:inline-block
 }
+#defaultForm{
+display:flex;
+justify-content:center;
+}
 
-
+.jumbotron {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.form {
+    width: 350px;
+    height: auto;
+    margin: 50px auto;
+    padding: 50px;
+    background-color: #EEEEEE;
+    color: #333;
+    border: 2px solid #C2D6FF;
+    border-radius: 40px 0 40px 0;
+}
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
