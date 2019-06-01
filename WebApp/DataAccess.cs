@@ -42,7 +42,6 @@ namespace WebApp
             using (IDbConnection con = new SQLiteConnection(getConnectionString()))
             {
                 var forecasts = con.Query<Forecast>("SELECT * FROM Forecast WHERE city IS @city", searchParams);
-                System.Diagnostics.Debug.WriteLine("query: " + forecasts.ToList<Forecast>().Count());
                 return forecasts.ToList<Forecast>();
             }
 
