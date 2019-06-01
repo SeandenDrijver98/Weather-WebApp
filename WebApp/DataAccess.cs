@@ -41,7 +41,7 @@ namespace WebApp
 
             using (IDbConnection con = new SQLiteConnection(getConnectionString()))
             {
-                var forecasts = con.Query<Forecast>("SELECT * FROM Forecast WHERE city IS @city", searchParams);
+                var forecasts = con.Query<Forecast>("SELECT * FROM Forecast WHERE city IS @city ORDER BY date ASC", searchParams);
                 return forecasts.ToList<Forecast>();
             }
 
